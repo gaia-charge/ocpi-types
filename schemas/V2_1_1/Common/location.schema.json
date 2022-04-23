@@ -1,5 +1,5 @@
 {
-    "title": "V2.1.1\\Location",
+    "title": "Location",
     "type": "object",
     "properties": {
         "id": {

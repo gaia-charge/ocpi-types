@@ -1,5 +1,5 @@
 {
-  "title": "V2.1.1\\Version",
+  "title": "Version",
   "type": "object",
   "properties": {
     "version" : {

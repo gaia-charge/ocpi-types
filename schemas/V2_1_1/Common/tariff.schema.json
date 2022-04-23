@@ -1,5 +1,5 @@
 {
-    "title": "V2.1.1\\Tariff",
+    "title": "Tariff",
     "type": "object",
     "properties": {
         "id": {
