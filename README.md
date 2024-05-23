@@ -1,0 +1,1 @@
+* The 2.1.1 schemas have been adapted from [`ChargeMap/ocpi-protocol`](https://github.com/ChargeMap/ocpi-protocol/tree/master/resources/jsonSchemas).
