@@ -21,7 +21,3 @@ const myLocation: Location;
 ```
 
 You can consult [the documentation](https://gaia-charge.github.io/ocpi-types/typescript/docs) for more information.
-
-## Known issues
-
-As some types have different required fields between OCPI modules, we end up with some seemingly duplicate types. Most prominant case is `Location`, `CdrLocation` and `SessionLocation`. The conversion between each other has to be done manually at the moment.

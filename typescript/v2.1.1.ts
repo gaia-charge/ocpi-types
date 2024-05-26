@@ -26,7 +26,7 @@ export interface Cdr {
     currency:            string;
     id:                  string;
     last_updated:        string;
-    location:            CdrLocation;
+    location:            Location;
     meter_id?:           null | string;
     remark?:             null | string;
     start_date_time:     string;
@@ -62,28 +62,28 @@ export enum DimensionType {
     Time = "TIME",
 }
 
-export interface CdrLocation {
-    id:                    string;
-    type:                  LocationType;
+export interface Location {
     address:               string;
-    city:                  string;
-    postal_code:           string;
-    country:               string;
-    coordinates:           GeoLocation;
-    last_updated:          string;
     charging_when_closed?: boolean | null;
+    city:                  string;
+    coordinates:           GeoLocation;
+    country:               string;
     directions?:           DisplayText[] | null;
     energy_mix?:           EnergyMix | null;
     evses?:                Evse[] | null;
     facilities?:           Facility[] | null;
+    id:                    string;
     images?:               Image[] | null;
+    last_updated:          string;
     name?:                 null | string;
     opening_times?:        Hours | null;
     operator?:             BusinessDetails | null;
     owner?:                BusinessDetails | null;
+    postal_code:           string;
     related_locations?:    RelatedLocation[] | null;
     suboperator?:          BusinessDetails | null;
     time_zone?:            null | string;
+    type:                  LocationType;
 }
 
 export interface GeoLocation {
@@ -370,30 +370,6 @@ export interface Credentials {
     url?:              string;
 }
 
-export interface Location {
-    address?:              string;
-    charging_when_closed?: boolean | null;
-    city?:                 string;
-    coordinates?:          GeoLocation;
-    country?:              string;
-    directions?:           DisplayText[] | null;
-    energy_mix?:           EnergyMix | null;
-    evses?:                Evse[] | null;
-    facilities?:           Facility[] | null;
-    id?:                   string;
-    images?:               Image[] | null;
-    last_updated?:         string;
-    name?:                 null | string;
-    opening_times?:        Hours | null;
-    operator?:             BusinessDetails | null;
-    owner?:                BusinessDetails | null;
-    postal_code?:          string;
-    related_locations?:    RelatedLocation[] | null;
-    suboperator?:          BusinessDetails | null;
-    time_zone?:            null | string;
-    type?:                 LocationType;
-}
-
 export interface Session {
     auth_id?:          string;
     auth_method?:      AuthMethod;
@@ -403,35 +379,11 @@ export interface Session {
     id?:               string;
     kwh?:              number;
     last_updated?:     string;
-    location?:         SessionLocation;
+    location?:         Location;
     meter_id?:         null | string;
     start_datetime?:   string;
     status?:           Status;
     total_cost?:       number | null;
-}
-
-export interface SessionLocation {
-    id:                    string;
-    type:                  LocationType;
-    address:               string;
-    city:                  string;
-    postal_code:           string;
-    country:               string;
-    coordinates:           GeoLocation;
-    last_updated:          string;
-    charging_when_closed?: boolean | null;
-    directions?:           DisplayText[] | null;
-    energy_mix?:           EnergyMix | null;
-    evses?:                Evse[] | null;
-    facilities?:           Facility[] | null;
-    images?:               Image[] | null;
-    name?:                 null | string;
-    opening_times?:        Hours | null;
-    operator?:             BusinessDetails | null;
-    owner?:                BusinessDetails | null;
-    related_locations?:    RelatedLocation[] | null;
-    suboperator?:          BusinessDetails | null;
-    time_zone?:            null | string;
 }
 
 export enum Status {
@@ -647,7 +599,7 @@ const typeMap: any = {
         { json: "currency", js: "currency", typ: "" },
         { json: "id", js: "id", typ: "" },
         { json: "last_updated", js: "last_updated", typ: "" },
-        { json: "location", js: "location", typ: r("CdrLocation") },
+        { json: "location", js: "location", typ: r("Location") },
         { json: "meter_id", js: "meter_id", typ: u(undefined, u(null, "")) },
         { json: "remark", js: "remark", typ: u(undefined, u(null, "")) },
         { json: "start_date_time", js: "start_date_time", typ: "" },
@@ -666,7 +618,7 @@ const typeMap: any = {
         { json: "type", js: "type", typ: r("DimensionType") },
         { json: "volume", js: "volume", typ: 3.14 },
     ], false),
-    "CdrLocation": o([
+    "Location": o([
         { json: "id", js: "id", typ: "" },
         { json: "type", js: "type", typ: r("LocationType") },
         { json: "address", js: "address", typ: "" },
@@ -846,13 +798,13 @@ const typeMap: any = {
         { json: "id", js: "id", typ: u(undefined, "") },
         { json: "kwh", js: "kwh", typ: u(undefined, 3.14) },
         { json: "last_updated", js: "last_updated", typ: u(undefined, "") },
-        { json: "location", js: "location", typ: u(undefined, r("SessionLocation")) },
+        { json: "location", js: "location", typ: u(undefined, r("Location")) },
         { json: "meter_id", js: "meter_id", typ: u(undefined, u(null, "")) },
         { json: "start_datetime", js: "start_datetime", typ: u(undefined, "") },
         { json: "status", js: "status", typ: u(undefined, r("Status")) },
         { json: "total_cost", js: "total_cost", typ: u(undefined, u(3.14, null)) },
     ], false),
-    "SessionLocation": o([
+    "Location": o([
         { json: "id", js: "id", typ: "" },
         { json: "type", js: "type", typ: r("LocationType") },
         { json: "address", js: "address", typ: "" },
