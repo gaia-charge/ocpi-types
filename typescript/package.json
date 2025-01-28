@@ -1,14 +1,11 @@
 {
   "name": "ocpi-types-typescript",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Auto-generated TypeScript definitions for the OCPI protocol",
-  "types": "index.d.ts",
-  "scripts": {
-    "build": "json2ts --cwd ../schemas/V2_1_1/Common/ -i '../schemas/V2_1_1/Common/**/*.json' -o v2.1.1"
-  },
+  "main": "index.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gaia-green-tech/ocpi-types.git"
+    "url": "git+https://github.com/gaia-charge/ocpi-types.git"
   },
   "keywords": [
     "ocpi",
@@ -16,13 +13,17 @@
     "cpo",
     "electromobility"
   ],
-  "author": "Gaia Green Tech <contact@gaiagreen.tech>",
+  "scripts": {
+    "docs": "ts-docs index.ts"
+  },
+  "author": "Gaia Charge <contact@gaiacharge.com>",
   "license": "AGPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/gaia-green-tech/ocpi-types/issues"
+    "url": "https://github.com/gaia-charge/ocpi-types/issues"
   },
-  "homepage": "https://github.com/gaia-green-tech/ocpi-types#readme",
+  "homepage": "https://github.com/gaia-charge/ocpi-types#readme",
   "devDependencies": {
-    "json-schema-to-typescript": "^10.1.5"
+    "@ts-docs/default-docs-structure": "^0.4.4",
+    "@ts-docs/ts-docs": "^0.4.4"
   }
 }
